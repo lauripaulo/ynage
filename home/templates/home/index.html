@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 
+  {% load staticfiles %}
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,14 +17,16 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://bootswatch.com/4/cerulean/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 
    </head>
 
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Yinaghe</a>
+      <a class="navbar-brand" href="#">Ynage</a>
+
+      <!--
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,15 +56,18 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
+      -->
+
     </nav>
 
     <main role="main" class="container">
 
       <div class="starter-template">
+        <br/>
         <h1>Github shiny repositories search tool</h1>
         <p class="lead">Use this tool to search for public starred repos.</p>
         <input type="text" id="searchRepo" class="form-control" placeholder="Enter a language to search">
-        <p>{{ test_message }}</p>
+        <button id="searchButton" class="btn btn-primary">Search</button>
       </div>
 
     </main><!-- /.container -->
@@ -71,7 +78,7 @@
     </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
 
     
   </body>
