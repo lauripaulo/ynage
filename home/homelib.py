@@ -26,7 +26,7 @@ class GithubHelper:
         :param keyword: string
         :param language: string
         """
-        list = self.gh.search_repositories(keyword, 'stars', 'asc', language=language, archived='false', fork='false')
+        list = self.gh.search_repositories(keyword, 'stars', 'desc', language=language, archived='false', fork='false')
         self.repository_list = list[:5]
 
 
@@ -56,12 +56,12 @@ class RepositoryHandler:
         data = GithubRepository()
         data.id = repo.id
         data.name = repo.name
-        data.full_name = repo.full_name if repo.full_name != None else "<Empty>"
-        data.description = repo.description if repo.description != None else "<Empty>"
+        data.full_name = repo.full_name if repo.full_name != None else ""
+        data.description = repo.description if repo.description != None else ""
         data.fork = repo.fork
         data.url = repo.url
         data.created_at = dateparser.parse(str(repo.created_at))
-        data.homepage = repo.homepage if repo.homepage != None else "<Empty>"
+        data.homepage = repo.homepage if repo.homepage != None else ""
         data.size = repo.size
         data.language = repo.language
         data.open_issues = repo.open_issues
