@@ -10,7 +10,6 @@ from home.homelib import GithubRepository
 def index(request):
     form = SearchForm()
     context = {
-        'test_message': 'django index page.',
         'form': form
     }
     return render(request, 'home/index.html', context)
@@ -32,7 +31,6 @@ def browse(request):
         ghr = RepositoryHandler()
         repository_list = ghr.list_saved_repositories()
     context = {
-        'test_message': 'django browse page.',
         'keyword': keyword,
         'language': language,
         'repository_list': repository_list
