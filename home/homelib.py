@@ -66,6 +66,8 @@ class RepositoryHandler:
         data.language = repo.language
         data.open_issues = repo.open_issues
         data.watchers = repo.watchers
+        data.html_url = repo.html_url if repo.html_url else ""
+        data.git_url = repo.git_url if repo.git_url else ""
         return data
 
 
