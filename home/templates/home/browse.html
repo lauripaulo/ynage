@@ -52,15 +52,48 @@
         <br/>
         <h1>Github saved repositories</h1>
         <p class="lead">Here you can browse and see details of your saved repositories.</p>
-        <p class="lead">Keyword: {{ keyword }}</p>
-        <p class="lead">Language: {{ language }}</p>
+        <div id="query-details">
+          {% if keyword != None %}
+          <p class="lead">Keyword: {{ keyword }}</p>
+          <p class="lead">Language: {{ language }}</p>
+          {% endif %}
+        </div>
       </div>
+
+        {% for repo in repository_list %}
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="card">
+                        <h4 class="card-header">{{ repo.name }} </h4>
+                        <div class="card-body">
+                            <h5 class="card-title">Language: {{ repo.language}}</h5>
+                            {% if repo.fullname != None %}
+                                <p class="card-text">{{ repo.fullname }}</p>
+                            {% endif %}
+                            {% if repo.description != None %}
+                                <p class="card-text">{{ repo.description }}</p>
+                            {% endif %}
+                            <p>
+                                <span class="badge badge-primary">Created: {{ repo.created_at }}</span>
+                                <span class="badge badge-secondary">Size: {{ repo.size }}k</span>
+                                <span class="badge badge-danger">Fork: {{ repo.fork }}</span>
+                                <span class="badge badge-dark">Open issues: {{ repo.open_issues}}</span>
+                                <span class="badge badge-info">Watchers: {{ repo.watchers }}</span>
+                                <span class="badge badge-success">ID: {{ repo.id }}</span>
+                            </p>
+                            <p><a href="{{ repo.url }}" class="btn btn-primary">Go to repository</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+        {% endfor %}
 
     </main><!-- /.container -->
 
     <script src="{% static "js/jquery-3.3.1.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/browse.js" %}"></script>
 
   </body>
 </html>
