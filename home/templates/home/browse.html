@@ -80,6 +80,9 @@
                         <span class="badge badge-info">Watchers: {{ repo.watchers }}</span>
                         <span class="badge badge-success">ID: {{ repo.id }}</span>
                     </p>
+                    <h5>Clone:</h5>
+                    <input type="text" id="cloneInputText" value="{{ repo.git_url }}" readonly size="32" class="form-control form-control-lg">
+                    <br/>
                     <p><a href="{{ repo.html_url }}" class="btn btn-primary" target="_blank">Go to repository</a></p>
                 </div>
             </div>
