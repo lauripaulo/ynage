@@ -56,12 +56,12 @@ class RepositoryHandler:
         data = GithubRepository()
         data.id = repo.id
         data.name = repo.name
-        data.full_name = repo.full_name
-        data.description = repo.description
+        data.full_name = repo.full_name if repo.full_name != None else "<Empty>"
+        data.description = repo.description if repo.description != None else "<Empty>"
         data.fork = repo.fork
         data.url = repo.url
         data.created_at = dateparser.parse(str(repo.created_at))
-        data.homepage = repo.homepage
+        data.homepage = repo.homepage if repo.homepage != None else "<Empty>"
         data.size = repo.size
         data.language = repo.language
         data.open_issues = repo.open_issues
