@@ -42,6 +42,9 @@ class RepositoryHandler:
             data_list.append(data)
         return data_list
 
+    def delete(self, id):
+        GithubRepository.objects.filter(id=id).delete()
+
     @staticmethod
     def list_saved_repositories():
         return GithubRepository.objects.all()
