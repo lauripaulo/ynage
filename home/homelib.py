@@ -1,6 +1,7 @@
 """
 Ynage class library with utilities and helper classes.
 """
+from xml.dom.minicompat import StringTypes
 
 import dateparser
 from github import Github
@@ -32,11 +33,13 @@ class GithubHelper:
 
 class RepositoryHandler:
 
+    def __init__(self):
+        self.helper = GithubHelper()
+
     def get_remote_repositories(self, keyword, language):
-        gh = GithubHelper()
-        gh.search(keyword, language)
+        self.helper.search(keyword, language)
         data_list = []
-        for repository in gh.repository_list:
+        for repository in self.helper.repository_list:
             data = self.repo2model(repository)
             data.save()
             data_list.append(data)
@@ -63,7 +66,7 @@ class RepositoryHandler:
         data.description = repo.description if repo.description != None else ""
         data.fork = repo.fork
         data.url = repo.url
-        data.created_at = dateparser.parse(str(repo.created_at))
+        data.created_at = repo.created_at
         data.homepage = repo.homepage if repo.homepage != None else ""
         data.size = repo.size
         data.language = repo.language
@@ -72,25 +75,3 @@ class RepositoryHandler:
         data.html_url = repo.html_url if repo.html_url else ""
         data.git_url = repo.git_url if repo.git_url else ""
         return data
-
-
-if __name__ == '__main__':
-    gh = GithubHelper()
-    gh.search('arduino', 'Java')
-    result = gh.repository_list
-    for repo in gh.repository_list:
-        print('Id:{} - Name: {}'.format(repo.id, repo.name))
-        print('Description: {}'.format(repo.description))
-        print('Language: {}'.format(repo.language))
-        print('URL: {}'.format(repo.url))
-        print('')
-
-    # print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    # rh = RepositoryHandler()
-    # repositories = rh.get_remote_repositories('raspberry', 'C')
-    # for repo in repositories:
-    #     print('Id:{} - Name: {}'.format(repo.id, repo.name))
-    #     print('Description: {}'.format(repo.description))
-    #     print('Language: {}'.format(repo.language))
-    #     print('URL: {}'.format(repo.url))
-    #     print('')
