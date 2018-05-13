@@ -50,9 +50,15 @@
       <div class="starter-template">
         <br/>
         <h1>Github shiny repositories search tool</h1>
-        <p class="lead">Use this tool to search for public starred repos.</p>
-        <input type="text" id="searchRepo" class="form-control" placeholder="Enter a language to search">
-        <button id="searchButton" class="btn btn-primary">Search</button>
+        <p class="lead">Use this tool to search for public starred repositories.</p>
+
+        <form action="/browse/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input class="btn btn-primary" type="submit" value="Search and save" />
+        </form>
+
       </div>
 
     </main><!-- /.container -->
