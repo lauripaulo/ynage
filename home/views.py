@@ -36,3 +36,16 @@ def browse(request):
         'repository_list': repository_list
     }
     return render(request, 'home/browse.html', context)
+
+
+def delete(request, delete_id):
+    ghr = RepositoryHandler()
+    if request.method == 'GET':
+        ghr.delete(int(delete_id))
+    repository_list = ghr.list_saved_repositories()
+    context = {
+        'keyword': "",
+        'language': "",
+        'repository_list': repository_list
+    }
+    return render(request, 'home/browse.html', context)
