@@ -15,3 +15,6 @@ class GithubRepository(models.Model):
     language = models.CharField(max_length=32)
     open_issues = models.IntegerField()
     watchers = models.IntegerField()
+
+    def __str__(self):
+        return "{}, {}, {}".format(self.id, self.name, self.url)
