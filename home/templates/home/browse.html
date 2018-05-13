@@ -36,10 +36,10 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/">Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/browse">Browse saved repositories<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/browse">Browse<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
@@ -80,7 +80,7 @@
                         <span class="badge badge-info">Watchers: {{ repo.watchers }}</span>
                         <span class="badge badge-success">ID: {{ repo.id }}</span>
                     </p>
-                    <p><a href="{{ repo.url }}" class="btn btn-primary">Go to repository</a></p>
+                    <p><a href="{{ repo.html_url }}" class="btn btn-primary" target="_blank">Go to repository</a></p>
                 </div>
             </div>
             <br/>
