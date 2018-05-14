@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 
-  {% load staticfiles %}
+{% load staticfiles %}
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Ynage - Ynage Is Not Another Github Explorer">
@@ -20,46 +20,47 @@
     <link href="{% static "css/style.css" %}" rel="stylesheet">
 
 
-   </head>
+</head>
 
-  <body>
+<body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-        <a class="navbar-brand" href="#">Ynage - Ynage Is Not Another Github Explorer</a>
+    <a class="navbar-brand" href="#">Ynage - Ynage Is Not Another Github Explorer</a>
 
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Search</a>
+                <a class="nav-link" href="/">Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/browse">Browse<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/browse">Browse<span class="sr-only">(current)</span></a>
             </li>
-          </ul>
-        </div>
+        </ul>
+    </div>
 
-    </nav>
+</nav>
 
-    <main role="main" class="container">
+<main role="main" class="container">
 
-      <div class="starter-template">
+    <div class="starter-template">
         <br/>
         <h1>Github saved repositories</h1>
         <p class="lead">Here you can browse and see details of your saved repositories.</p>
-      </div>
+    </div>
 
-        <div class="container-fluid">
+    <div class="container-fluid">
         {% for repo in repository_list %}
             <div class="card">
                 <h4 class="card-header">{{ repo.name }} </h4>
                 <div class="card-body">
-                    <h5 class="card-title">Language: {{ repo.language}}</h5>
+                    <h5 class="card-title">Language: {{ repo.language }}</h5>
                     {% if repo.fullname != None %}
                         <p class="card-text">{{ repo.fullname }}</p>
                     {% endif %}
@@ -70,28 +71,30 @@
                         <span class="badge badge-primary">Created: {{ repo.created_at }}</span>
                         <span class="badge badge-secondary">Size: {{ repo.size }}k</span>
                         <span class="badge badge-danger">Fork: {{ repo.fork }}</span>
-                        <span class="badge badge-dark">Open issues: {{ repo.open_issues}}</span>
+                        <span class="badge badge-dark">Open issues: {{ repo.open_issues }}</span>
                         <span class="badge badge-info">Watchers: {{ repo.watchers }}</span>
                         <span class="badge badge-success">ID: {{ repo.id }}</span>
                     </p>
                     <h5>Clone:</h5>
-                    <input type="text" id="cloneInputText" value="{{ repo.git_url }}" readonly size="32" class="form-control form-control-lg">
+                    <input type="text" id="cloneInputText" value="{{ repo.git_url }}" readonly size="32"
+                           class="form-control form-control-lg">
                     <br/>
                     <p>
                         <a href="{{ repo.html_url }}" class="btn btn-primary" target="_blank">Go to repository</a>
-                        <a href="/delete/{{ repo.id }}/" class="btn btn-warning" id="deleteButton">Delete saved repository</a>
+                        <a href="/delete/{{ repo.id }}/" class="btn btn-warning" id="deleteButton">Delete saved
+                            repository</a>
                     </p>
                 </div>
             </div>
             <br/>
         {% endfor %}
-        </div>
+    </div>
 
-    </main><!-- /.container -->
+</main><!-- /.container -->
 
-    <script src="{% static "js/jquery-3.3.1.js" %}"></script>
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/browse.js" %}"></script>
+<script src="{% static "js/jquery-3.3.1.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/browse.js" %}"></script>
 
-  </body>
+</body>
 </html>
