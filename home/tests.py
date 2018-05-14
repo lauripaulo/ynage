@@ -1,9 +1,12 @@
 from unittest.mock import MagicMock
 
+from django.http import HttpRequest
 from django.test import TestCase
+from django.urls import resolve
 from django.utils.timezone import now
 
 from home.homelib import RepositoryHandler, GithubHelper
+from home.views import index, browse, delete
 
 
 # Create your tests here.
@@ -87,3 +90,46 @@ class RepositoryHandlerTestCase(TestCase):
         result = handler.get_remote_repositories('keyword', 'language')
         handler.helper.search.assert_called_with('keyword', 'language')
         self.assertEqual(result[0], model)
+
+
+class IndexPageTest(TestCase):
+
+    def test_root_url_resolves_to_index(self):
+        found = resolve('/')
+        self.assertEqual(found.func, index)
+
+    def test_index_returns_correct_html(self):
+        request = HttpRequest()
+        response = index(request)
+        html = response.content.decode('utf8')
+        self.assertIn('<h1>Github shiny repositories search tool</h1>', html)
+        self.assertIn('<form action="/browse/" method="post">', html)
+        self.assertIn('<input class="btn btn-primary" type="submit" value="Search and save"/>', html)
+
+
+class BrowsePageTest(TestCase):
+
+    def test_browse_url_resolves_to_browse(self):
+        found = resolve('/browse/')
+        self.assertEqual(found.func, browse)
+
+    def test_browse_returns_correct_html(self):
+        request = HttpRequest()
+        response = browse(request)
+        html = response.content.decode('utf8')
+        self.assertIn('<h1>Github saved repositories</h1>', html)
+        self.assertIn('<p class="lead">Here you can browse and see details of your saved repositories.</p>', html)
+
+    def test_browse_request_post(self):
+        request = HttpRequest()
+        request.POST = {'keyword': 'test', 'language': '0'}
+        response = browse(request)
+        html = response.content.decode('utf8')
+        self.assertIn('<h1>Github saved repositories</h1>', html)
+        self.assertIn('<p class="lead">Here you can browse and see details of your saved repositories.</p>', html)
+
+class DeletePageTest(TestCase):
+
+    def test_delete_url_resolves_to_browse(self):
+        found = resolve('/delete/1/')
+        self.assertEqual(found.func, delete)
