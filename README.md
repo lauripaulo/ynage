@@ -7,9 +7,9 @@
 
 Not much actually. It just queries the github api using a wonderful python lib called 'pygithub'.
 
-You need to inform a keyword and choose one of my favorite (hyped?) languages and click a button. The application will bring the top 5 starred repositories it finds.
+You need to inform a keyword and choose one of my favorite (hyped?) languages and click a button. The application will bring the top 5 repositories it finds order by stars.
 
-Once the the query results are back it is persisted in a database and you can browse the results. If you don't want to seed a particular result you can delete it (or all of them if you do not like any of them).
+Once the the query results are back they are persisted in a database and you can browse the results. If you don't want to see a particular result you can delete it (or all of them if you do not like any of them).
 
 Every time you search again the results will be merged. New entries will be added and entries already present will be updated.
 
