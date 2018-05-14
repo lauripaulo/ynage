@@ -1,0 +1,1 @@
+web: gunicorn ynage.wsgi --log-file -
