@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
-from home.homelib import RepositoryHandler
+
 from home.forms import SearchForm
-from home.homelib import GithubRepository
+from home.homelib import RepositoryHandler
 
 
 # Create your views here.
