@@ -1,7 +1,9 @@
 # ynage
 <h1>Ynage is Not Another Github Explorer</h1>
 
-- And it's a personal playground to explore Python and Django.
+And it's a personal playground to explore Python and Django.
+
+You can <a href='https://ynage.herokuapp.com/' target='_blank'>try it in Heroku</a>!
 
 <h2>What it does?</h2>
 
@@ -24,3 +26,10 @@ Maybe, with more time it will show the repository owner. And will have some kind
 If you have any suggestions I'll be glad to hear.
 
 Peace!
+
+<h3>Setting up in production</h3>
+
+To protect sensible data in a production server some environment variables must be set:
+
+- DJANGO_SECRET_KEY
+- DJANGO_DEBUG
