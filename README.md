@@ -14,7 +14,7 @@ Once the the query results are back they are persisted in a database and you can
 
 Every time you search again the results will be merged. New entries will be added and entries already present will be updated.
 
-You can also change the saved repositories using django admin interface (the functionality is free. Thanks Django!!!)
+You can also change the saved repositories using django <a href='https://ynage.herokuapp.com/admin/' target='_blank'>admin interface</a> with the user 'admin' and password 'ynageHeroku2018' (the functionality is free. Thanks Django!!!)
 
 Pretty straightforward. Give it a try.
 
