@@ -2,7 +2,7 @@
 
 And it's a personal playground to explore Python and Django.
 
-You can [try it in Heroku]('https://ynage.herokuapp.com/')!
+You can [try it in Heroku](https://ynage.herokuapp.com/)!
 
 ## What it does?
 
@@ -21,7 +21,7 @@ Every time you search again the results will be merged. New entries
 will be added and entries already present will be updated.
 
 You can also change the saved repositories using django 
-[admin interface]('https://ynage.herokuapp.com/admin/') with the 
+[admin interface](https://ynage.herokuapp.com/admin/) with the 
 user `admin` and password `ynageHeroku2018` (the functionality is 
 free. Thanks Django!!!)
 
