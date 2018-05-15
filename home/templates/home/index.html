@@ -53,6 +53,12 @@
         <h1>Github shiny repositories search tool</h1>
         <p class="lead">Use this tool to search for public starred repositories.</p>
 
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Ops... </strong> {{ message }}
+        </div>
+        {% endif %}
+
         <form action="/browse/" method="post">
             {% csrf_token %}
             {{ form }}
