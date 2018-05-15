@@ -1,5 +1,4 @@
-# ynage
-<h1>Ynage is Not Another Github Explorer</h1>
+# Ynage is Not Another Github Explorer
 
 And it's a personal playground to explore Python and Django.
 
