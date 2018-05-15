@@ -47,3 +47,13 @@ def delete(request, delete_id):
         'repository_list': repository_list
     }
     return render(request, 'home/browse.html', context)
+
+
+def csrf_failure(request, reason=""):
+    form = SearchForm()
+    context = {
+        'form': form,
+        'message': "You need to search again, "
+                   "probably your browser was idle for too long."
+    }
+    return render(request, 'home/index.html', context)
