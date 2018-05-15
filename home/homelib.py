@@ -1,10 +1,9 @@
 """
 Ynage class library with utilities and helper classes.
 """
-from xml.dom.minicompat import StringTypes
 
-import dateparser
 from github import Github
+
 from home.models import GithubRepository
 
 CLIENT_ID = '260496816d82dc2ed7c2'
